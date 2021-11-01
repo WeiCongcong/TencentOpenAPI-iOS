@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name                   = 'TencentOpenAPI-iOS'
-  s.version                = '3.5.5'
+  s.version                = '3.5.7'
   s.license                = { :type => 'MIT' }
   s.homepage               = 'https://wiki.connect.qq.com'
   s.author                 = { 'WeiCongcong' => 'lei.zhang@lejent.com' }
