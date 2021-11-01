@@ -39,6 +39,7 @@ typedef NS_ENUM(NSInteger,QQApiSendResultCode) {
     EQQAPIVERSIONNEEDUPDATE = 10002,  //当前QQ版本太低，需要更新至新版本才可以支持
     ETIMAPIVERSIONNEEDUPDATE = 10004,  //当前TIM版本太低，需要更新至新版本才可以支持
     EAPPURLTYPESILLEGALITY = 20000,  //(>=3.3.8)第三方APP的info.plist中UrlTypes字段存在QQ的UrlScheme
+    EQQAPI_ERROR_USER_NOT_AGREED_AUTHORIZATION = 30001, // 用户未同意隐私协议，用户同意隐私协议后，需要设置[TencentOAuth setIsUserAgreedAuthorization:YES];
 };
 
 #pragma mark - QQApiObject(分享对象类型)
@@ -141,6 +142,7 @@ __attribute__((visibility("default"))) @interface QQApiResultObject : QQApiObjec
 @property(nonatomic,retain) NSString* error; ///<错误
 @property(nonatomic,retain) NSString* errorDescription; ///<错误描述
 @property(nonatomic,retain) NSString* extendInfo; ///<扩展信息
+@property(nonatomic,retain) NSDictionary* otherInfo; ///<其他扩展信息
 @end
 
 // QQApiTextObject
@@ -635,6 +637,9 @@ typedef NS_ENUM(NSUInteger, QQApiInterfaceRespType) {
  */
 @interface SendMessageToQQResp : QQBaseResp
 
+/** 其他扩展信息 */
+@property (nonatomic, copy) NSDictionary* otherInfo;
+
 /**
  创建一个SendMessageToQQResp应答实例
  \param result 请求处理结果
@@ -643,6 +648,8 @@ typedef NS_ENUM(NSUInteger, QQApiInterfaceRespType) {
  \return 新创建的SendMessageToQQResp应答实例
  */
 + (SendMessageToQQResp *)respWithResult:(NSString *)result errorDescription:(NSString *)errDesp extendInfo:(NSString*)extendInfo;
+
++(SendMessageToQQResp*) respWithResult:(NSString *)result errorDescription:(NSString *)errDesp extendInfo:(NSString*)extendInfo otherInfo:(NSDictionary *)otherInfo;
 
 @end
 

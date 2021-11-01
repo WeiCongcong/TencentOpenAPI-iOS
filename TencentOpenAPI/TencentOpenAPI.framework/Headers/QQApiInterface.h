@@ -196,6 +196,7 @@ typedef void (^sendResultBlock)(NSDictionary *result);
 + (NSString *)getTIMInstallUrl;
 
 #pragma mark - Log
+
 /*! @brief 调用此函数可以导出QQSDK的Log到第三方中，用于定位问题
  
     注意1:SDK会强引用这个block,注意不要导致内存泄漏,注意不要导致内存泄漏
@@ -204,10 +205,14 @@ typedef void (^sendResultBlock)(NSDictionary *result);
  *  @param logBlock 打印log的回调block
  */
 + (void)startLogWithBlock:(QQApiLogBolock)logBlock;
+
 ///停止回调打印
 + (void)stopLog;
+
 ///设置打印日志到文件开关on/off，如果不设置，默认不打印到文件
 + (void)setSwitchPrintLogToFile:(BOOL)on;
+
 ///日志文件目录
 + (NSString*)getLogFilePath;
+
 @end
