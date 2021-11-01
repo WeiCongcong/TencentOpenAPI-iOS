@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
 
   s.name                   = 'TencentOpenAPI-iOS'
-  s.version                = '3.5.3'
+  s.version                = '3.5.5'
   s.license                = { :type => 'MIT' }
   s.homepage               = 'https://wiki.connect.qq.com'
-  s.authors                = { 'WeiCongcong' => 'lei.zhang@lejent.com' }
+  s.author                 = { 'WeiCongcong' => 'lei.zhang@lejent.com' }
   s.summary                = 'TencentOpenAPI, why not pod'
   s.source                 = { :git => 'https://github.com/WeiCongcong/TencentOpenAPI-iOS.git', :tag => s.version }
   s.ios.deployment_target  = '7.0'
